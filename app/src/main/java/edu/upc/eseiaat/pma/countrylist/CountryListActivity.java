@@ -38,5 +38,14 @@ public class CountryListActivity extends AppCompatActivity {
                 ).show();
             }
         });
+
+        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View item, int pos, long id) {
+                country_list.remove(pos);
+                adapter.notifyDataSetChanged();
+                return true; //Ahi sale false, si le ponemos TRUE es para que el click normal no ocurra
+            }
+        });
     }
 }
